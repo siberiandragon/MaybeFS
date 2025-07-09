@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Aniversário, Dev!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(#0f2027, #203a43, #2c5364);
+      color: #fff;
+      font-family: "Segoe UI", sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      margin-top: 50px;
+      font-size: 3em;
+      animation: pulse 2s infinite;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin: 10px 20px;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -100px;
+      width: 60px;
+      height: 80px;
+      background-color: red;
+      border-radius: 30px 30px 30px 30px;
+      animation: float 6s linear infinite;
+      opacity: 0.7;
+    }
+
+    .balloon::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      width: 2px;
+      height: 30px;
+      background: white;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) translateX(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) translateX(30px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      font-size: 0.9em;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Feliz Aniversário, Mestre da TI! 🎉</h1>
+  <p>Hoje nem bug consegue te parar. Curta seu dia!</p>
+  <p>Que seu código compile na primeira e que os tickets sumam hoje! 😄</p>
+
+  <div class="footer">Feito com <3 por sua equipe!</div>
+
+  <!-- Balões -->
+  <script>
+    function createBalloon() {
+      const balloon = document.createElement("div");
+      balloon.classList.add("balloon");
+      balloon.style.left = Math.random() * 100 + "vw";
+      balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+      document.body.appendChild(balloon);
+      setTimeout(() => balloon.remove(), 6000);
+    }
+
+    setInterval(createBalloon, 500);
+  </script>
+</body>
+</html>
